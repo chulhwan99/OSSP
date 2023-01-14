@@ -12,6 +12,18 @@ public class GameManager : MonoBehaviour {
     private float surviveTime; // 생존 시간
     private bool isGameover; // 게임 오버 상태
 
+    public static GameManager GetInstance()
+    {
+        if (instance == null)
+        {
+            instance = FindObjectOfType<GameManager>();
+        }
+
+        return instance;
+    }
+    private static GameManager instance;
+
+
     void Start() {
         // 생존 시간과 게임 오버 상태를 초기화
         surviveTime = 0;
@@ -37,6 +49,15 @@ public class GameManager : MonoBehaviour {
             }
         }
     }
+
+    public void add_surviveTime(float input) {
+        surviveTime += input;
+    }
+
+    public float get_surviveTime() {
+        return surviveTime;
+    }
+
 
     // 현재 게임을 게임 오버 상태로 변경하는 메서드
     public void EndGame() {

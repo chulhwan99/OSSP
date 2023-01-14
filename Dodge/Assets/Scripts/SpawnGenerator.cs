@@ -52,5 +52,5 @@ public class SpawnGenerator : MonoBehaviour
 
     }
 }
-[출처] Unity 공부 /Amazing Balling/ (4) 랜덤 생성기|작성자 네웰
+
 

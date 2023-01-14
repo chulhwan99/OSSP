@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ScoreUp : Item
 {
+    
     public override void DestroyAfterTime()
     {
         Invoke("DestroyObject", 4.0f);
@@ -17,5 +18,12 @@ public class ScoreUp : Item
     public void DestroyObject()
     {
         Destroy(gameObject);
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player") {
+            GameManager.GetInstance().add_surviveTime(3);
+        }
     }
 }
