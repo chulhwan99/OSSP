@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreUp : Item
+public class PlusPoint : Item
 {
     
     public override void DestroyAfterTime()
@@ -23,7 +23,7 @@ public class ScoreUp : Item
     public void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player") {
-            GameManager.GetInstance().add_surviveTime(3);
+            GameManager.GetInstance().add_plusPoint();
             Destroy(gameObject);
         }
     }

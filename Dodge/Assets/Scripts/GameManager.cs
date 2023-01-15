@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
     public GameObject gameoverText; // 게임오버시 활성화 할 텍스트 게임 오브젝트
     public Text timeText; // 생존 시간을 표시할 텍스트 컴포넌트
     public Text recordText; // 최고 기록을 표시할 텍스트 컴포넌트
-
+    private float plusPoint; // 추가 점수
     private float surviveTime; // 생존 시간
     private bool isGameover; // 게임 오버 상태
 
@@ -56,6 +56,14 @@ public class GameManager : MonoBehaviour {
 
     public float get_surviveTime() {
         return surviveTime;
+    }
+
+    public void add_plusPoint(){
+        pluspoint++;
+    }
+    
+    public float get_plusPoint(){
+        return plusPoint;
     }
 
 
