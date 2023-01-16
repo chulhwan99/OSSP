@@ -54,12 +54,12 @@ public class GameManager : MonoBehaviour {
         surviveTime += input;
     }
 
-    public float get_surviveTime() {
-        return surviveTime;
+    public int get_surviveTime() {
+        return (int)surviveTime;
     }
 
     public void add_plusPoint(){
-        pluspoint++;
+        plusPoint++;
     }
     
     public float get_plusPoint(){

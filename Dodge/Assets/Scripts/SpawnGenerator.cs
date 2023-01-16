@@ -6,33 +6,34 @@ public class SpawnGenerator : MonoBehaviour
 {
     public GameObject [] propPrefabs;
     public BoxCollider area;
-    public int count = 100;
-
-    private List<GameObject> props = new List<GameObject>();
 
     private void Start()
     {
-        area = GetComponent<BoxCollider>();
+        area = GetComponent<BoxCollider>(); 
+        Spawn();
+    }
 
-        for(int i = 0 ; i < count ; i++)
+    void Update()
+    {
+
+        if(!GameObject.Find("Sphere(Clone)"))
         {
             Spawn();
         }
 
-        area.enabled = false;
+
     }
+
 
     private void Spawn()
     {
-        int selection = Random.Range(0, propPrefabs.Length);
 
-        GameObject selectedPrefab = propPrefabs[selection];
+        GameObject selectedPrefab = propPrefabs[0];
 
         Vector3 spawnPos = GetRandomPosition();
 
         GameObject Instance = Instantiate(selectedPrefab, spawnPos, Quaternion.identity);
 
-        props.Add(Instance);
     }
 
     private Vector3 GetRandomPosition()

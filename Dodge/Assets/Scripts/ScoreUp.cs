@@ -20,11 +20,12 @@ public class ScoreUp : Item
         Destroy(gameObject);
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnCollisionEnter(Collision collision)
     {
-        if (other.tag == "Player") {
+        if (collision.gameObject.tag == "Player") {
             GameManager.GetInstance().add_surviveTime(3);
             Destroy(gameObject);
+            
         }
     }
 }
