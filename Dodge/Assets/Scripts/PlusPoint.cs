@@ -10,21 +10,19 @@ public class PlusPoint : Item
         Invoke("DestroyObject", 4.0f);
     }
 
-    public override void RunItem()
-    {
-
-    }
-
     public void DestroyObject()
     {
         Destroy(gameObject);
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnCollisionEnter(Collision collision)
     {
-        if (other.tag == "Player") {
-            GameManager.GetInstance().add_plusPoint();
+        //충돌한 오브젝트의 tag가 "Player"면 GameManager 스크립트의 destroyItem()을 실행시키고 
+        //아이템 오브젝트를 삭제함
+        if (collision.gameObject.tag == "Player") {
+            GameManager.GetInstance().destroyItem();
             Destroy(gameObject);
+            
         }
     }
 }
